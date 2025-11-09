@@ -2,7 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === "production" ? "/UltimateCalculator/" : "/",
   plugins: [
     react(),
     VitePWA({
@@ -66,5 +67,5 @@ export default defineConfig({
   preview: {
     port: 4173
   }
-});
+}));
 
